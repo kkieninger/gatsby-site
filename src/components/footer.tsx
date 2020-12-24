@@ -9,9 +9,7 @@ const Footer: FC = () => {
       textAlign: 'center',
       marginBottom: '1.5rem',
     }}>
-      © {new Date().getFullYear()}, Built with
-      {` `}
-      <a href="https://www.gatsbyjs.com">Gatsby</a>
+      <span>kevin kieninger | {new Date().getFullYear()}</span>
       <nav style={{ margin: '1rem 0' }}>
         <a
           href="//github.com/"
