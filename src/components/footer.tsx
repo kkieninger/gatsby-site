@@ -1,25 +1,46 @@
 import React, { FC } from 'react';
-import { Link, useStaticQuery, graphql } from 'gatsby';
-import Image from 'gatsby-image';
+import { useTheme } from '@emotion/react';
 
 const Footer: FC = () => {
+  const theme = useTheme();
 
   return (
-    <footer style={{
+    <footer css={{
       textAlign: 'center',
-      marginBottom: '1.5rem',
+      margin: `${theme.spacing.xl} 0`,
+      position: 'relative',
+      padding: theme.spacing.nm,
+      '&:before': {
+        content: '""',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        height: 1,
+        width: '6rem',
+        margin: '0 auto',
+        backgroundColor: theme.colors.darkGray,
+      }
     }}>
-      <span>kevin kieninger | {new Date().getFullYear()}</span>
-      <nav style={{ margin: '1rem 0' }}>
+      <span css={{ fontWeight: theme.fonts.weight.light }}>kevin kieninger | {new Date().getFullYear()}</span>
+      <nav css={{ margin: `${theme.spacing.nm} 0` }}>
         <a
-          href="//github.com/"
+          href="//github.com/kkieninger"
           target="_blank"
-          style={{ margin: '0 0.75rem' }}
+          css={{ margin: `0 ${theme.spacing.sm}` }}
         >
           <svg
+            css={{
+              fill: theme.colors.darkGray,
+              transition: 'fill 0.2s ease',
+              '&:hover': {
+                fill: theme.colors.orange,
+                transition: 'fill 0.2s ease',
+              }
+            }}
             width="24"
             height="24"
-            fill="#313332"
             role="img"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
@@ -29,14 +50,21 @@ const Footer: FC = () => {
           </svg>
         </a>
         <a
-          href="//linkedin.com/"
+          href="//linkedin.com/in/kkieninger"
           target="_blank"
-          style={{ margin: '0 0.75rem' }}
+          css={{ margin: `0 ${theme.spacing.sm}` }}
         >
           <svg
+            css={{
+              fill: theme.colors.darkGray,
+              transition: 'fill 0.2s ease',
+              '&:hover': {
+                fill: theme.colors.orange,
+                transition: 'fill 0.2s ease',
+              }
+            }}
             width="24"
             height="24"
-            fill="#313332"
             role="img"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
@@ -46,14 +74,21 @@ const Footer: FC = () => {
           </svg>
         </a>
         <a
-          href="//twitter.com/"
+          href="//twitter.com/kevinkieninger"
           target="_blank"
-          style={{ margin: '0 0.75rem' }}
+          css={{ margin: `0 ${theme.spacing.sm}` }}
         >
           <svg
+            css={{
+              fill: theme.colors.darkGray,
+              transition: 'fill 0.2s ease',
+              '&:hover': {
+                fill: theme.colors.orange,
+                transition: 'fill 0.2s ease',
+              }
+            }}
             width="24"
             height="24"
-            fill="#313332"
             role="img"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"

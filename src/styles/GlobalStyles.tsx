@@ -32,9 +32,62 @@ export const GlobalStyles: FC = () => {
       body {
         background-color: var(--color-cream);
         font-family: var(--fontFamily-primary);
-        font-weight: 500;
+        font-weight: ${theme.fonts.weight.medium};
         color: var(--color-darkgray);
         position: relative;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-weight: ${theme.fonts.weight.bold};
+        margin-top: ${theme.spacing.md};
+        margin-bottom: ${theme.spacing.nm};
+        line-height: ${theme.fonts.lineHeight.tight};
+        letter-spacing: -0.025rem;
+      }
+
+      h1 > a,
+      h2 > a,
+      h3 > a,
+      h4 > a,
+      h5 > a,
+      h6 > a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      h1 {
+        font-size: ${theme.fonts.size.scale6};
+      }
+
+      h2 {
+        font-size: ${theme.fonts.size.scale5};
+      }
+
+      h3 {
+        font-size: ${theme.fonts.size.scale4};
+      }
+
+      h4 {
+        font-size: ${theme.fonts.size.scale3};
+      }
+
+      h5 {
+        font-size: ${theme.fonts.size.scale2};
+      }
+
+      h6 {
+        font-size: ${theme.fonts.size.scale1};
+      }
+
+      p {
+        line-height: ${theme.fonts.lineHeight.loose};
+        margin: 0 0 ${theme.spacing.nm};
+        padding: 0;
       }
     `}/>
   );

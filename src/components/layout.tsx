@@ -1,11 +1,8 @@
 import React, { FC } from 'react';
-/** @jsx jsx */
-import { jsx, ThemeProvider } from '@emotion/react';
 import styled from '@emotion/styled';
 import Header from './header';
 import Footer from './footer';
 
-import { theme } from '../styles/theme';
 import { GlobalStyles } from '../styles/GlobalStyles';
 
 const Wrapper = styled.div`
@@ -17,15 +14,19 @@ const Wrapper = styled.div`
 `;
 
 const Layout: FC = ({ children }) => {
+  const links = [
+    { path: '/', label: 'home' },
+    { path: '/writing', label: 'writing' },
+    { path: '/about', label: 'about' },
+  ];
+
   return (
-    <ThemeProvider theme={theme}>
-      <Wrapper>
-        <GlobalStyles />
-        <Header />
-        <main>{children}</main>
-        <Footer />
-      </Wrapper>
-    </ThemeProvider>
+    <Wrapper>
+      <GlobalStyles />
+      <Header { ...{ links } } />
+      <main>{children}</main>
+      <Footer />
+    </Wrapper>
   );
 };
 

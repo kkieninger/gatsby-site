@@ -144,7 +144,7 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
       company: "deep canvas",
       years: "2015-2018",
       current: false,
-      description: "handcrafted marketing wordpress sites for small businesses across metro detroit as a front-end web developer with deep canvas.",
+      description: "handcrafted custom, dynamic marketing wordpress sites for small businesses across metro detroit as a front-end web developer with deep canvas.",
     },
   ];
 
