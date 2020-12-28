@@ -1,7 +1,9 @@
 import '@emotion/react';
 
 /**
- * Hardcoding these type definitions to make introspection easier throughout this project. The
+ * In order to get introspection and type definitions, we have to extend the Theme interface exposed
+ * by Emotion (with initially starts out as an empty object). Below I am hardcoding these type definitions
+ * into strict interfaces to make type checking and introspection easier throughout this project. The
  * obvious downside is that any change to this project's theme also requires a change to its interface.
  * If preferred, it would be feasible to add generic type definitions, though some type safety is lost.
  

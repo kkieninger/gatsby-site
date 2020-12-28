@@ -1,7 +1,9 @@
 import { Theme } from '@emotion/react';
 
 /**
- * Used to provide base style options to Emotion's ThemeProvider in Layout
+ * Used to provide base style options to Emotion's ThemeProvider in Layout. It's the
+ * functional equivalent of setting CSS variables in a project and using them throughout
+ * 
  * TODO: reassess what is used / required
  */
 

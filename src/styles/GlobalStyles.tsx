@@ -2,6 +2,10 @@ import React, { FC } from 'react';
 /** @jsx jsx */
 import { Global, css, jsx, useTheme } from '@emotion/react'
 
+/**
+ * In here we're predominately just setting some sane defaults and implementing
+ * some global-level styles. So far it's mostly typography, but more to follow
+ */
 export const GlobalStyles: FC = () => {
   const theme = useTheme();
 
