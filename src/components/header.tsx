@@ -1,8 +1,11 @@
 import React, { FC } from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
+import { jsx, useTheme } from '@emotion/react';
 import Image from 'gatsby-image';
 
 const Header: FC = () => {
+  const theme = useTheme();
+
   const data = useStaticQuery(graphql`
     query {
       logo: file(absolutePath: { regex: "/gatsby-icon.png/" }) {
@@ -18,22 +21,33 @@ const Header: FC = () => {
   const logo = data?.logo?.childImageSharp?.fixed;
 
   return (
-    <header style={{
+    <header css={{
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
       marginBottom: '1.5rem',
     }}>
-      <Image
-        fixed={logo}
-        alt="logo"
-        className="logo"
-      />
+      <Link to="/">
+        <Image
+          fixed={logo}
+          alt="logo"
+          className="logo"
+        />
+      </Link>
 
       <nav>
-        <Link style={{ marginLeft: '1rem' }} to="/">Home</Link>
-        <Link style={{ marginLeft: '1rem' }} to="/writing">Writing</Link>
-        <Link style={{ marginLeft: '1rem' }} to="/about">About</Link>
+        <Link
+          css={{ marginLeft: theme.spacing.nm }}
+          to="/"
+        >home</Link>
+        <Link
+          css={{ marginLeft: theme.spacing.nm }}
+          to="/writing"
+        >writing</Link>
+        <Link
+          css={{ marginLeft: theme.spacing.nm }}
+          to="/about"
+        >about</Link>
       </nav>
     </header>
   );
