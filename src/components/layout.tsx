@@ -6,10 +6,13 @@ import Footer from './footer';
 import { GlobalStyles } from '../styles/GlobalStyles';
 
 const Wrapper = styled.div`
-  margin: ${props => props.theme.spacing.lg} auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0 auto;
   width: 100%;
   max-width: 900px;
-  padding: 0 ${props => props.theme.spacing.nm};
+  padding: ${props => props.theme.spacing.lg} ${props => props.theme.spacing.nm};
   text-align: left;
 `;
 
@@ -24,7 +27,9 @@ const Layout: FC = ({ children }) => {
     <Wrapper>
       <GlobalStyles />
       <Header { ...{ links } } />
-      <main>{children}</main>
+      <main css={{
+        flexGrow: 1,
+      }}>{children}</main>
       <Footer />
     </Wrapper>
   );

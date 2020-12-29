@@ -31,6 +31,7 @@ export const GlobalStyles: FC = () => {
         font-size: var(--fontSize-root);
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        height: 100%;
       }
 
       body {
@@ -64,6 +65,16 @@ export const GlobalStyles: FC = () => {
         text-decoration: none;
       }
 
+      h1 > a:hover,
+      h2 > a:hover,
+      h3 > a:hover,
+      h4 > a:hover,
+      h5 > a:hover,
+      h6 > a:hover {
+        color: var(--color-orange);
+        text-decoration: none;
+      }
+
       h1 {
         font-size: ${theme.fonts.size.scale6};
       }
@@ -92,6 +103,15 @@ export const GlobalStyles: FC = () => {
         line-height: ${theme.fonts.lineHeight.loose};
         margin: 0 0 ${theme.spacing.nm};
         padding: 0;
+      }
+
+      main a {
+        color: var(--color-orange);
+        text-decoration: none;
+      }
+
+      main a:hover {
+        text-decoration: underline;
       }
     `}/>
   );

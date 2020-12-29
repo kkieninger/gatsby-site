@@ -7,7 +7,7 @@ const Footer: FC = () => {
   return (
     <footer css={{
       textAlign: 'center',
-      margin: `${theme.spacing.xl} 0`,
+      margin: `${theme.spacing.xl} 0 ${theme.spacing.sm}`,
       position: 'relative',
       padding: theme.spacing.nm,
       '&:before': {

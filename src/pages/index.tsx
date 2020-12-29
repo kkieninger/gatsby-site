@@ -47,9 +47,13 @@ const HomePage: FC<PageProps<DataProps>> = ({ data }) => {
         </p>
       </section>
       <section>
-        <h3 className="current">current</h3>
+        <h3 css={{
+          marginBottom: theme.spacing.xs,
+        }}>current</h3>
         {currentJobs.map((job, index) => <JobListing key={index} {...job} />)}
-        <h3 className="previous">previous</h3>
+        <h3 css={{
+          marginBottom: theme.spacing.xs,
+        }}>previous</h3>
         {previousJobs.map((job, index) => <JobListing key={index} {...job} />)}
       </section>
     </Layout>
