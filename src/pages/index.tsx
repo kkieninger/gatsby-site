@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { graphql, PageProps } from 'gatsby';
+import { useTheme } from '@emotion/react';
 
 // Types
 import { Job } from '../types/jobs';
@@ -24,24 +25,31 @@ interface DataProps {
 }
 
 const HomePage: FC<PageProps<DataProps>> = ({ data }) => {
+  const theme = useTheme();
   const currentJobs = data.currentJobs.nodes;
   const previousJobs = data.previousJobs.nodes;
 
   return (
     <Layout>
       <SEO title="Home" />
-      <section className="bio">
-        <p>
-          hello, I'm <span className="fc-orange">kevin</span>, a software
-          engineer based in metro detroit. I specialize in javascript,
-          reactjs, vuejs, nodejs, and graphql. more words will go in this
+      <section css={{
+        margin: `${theme.spacing.xl} auto ${theme.spacing.lg}`,
+      }}>
+        <p css={{
+          fontSize: theme.fonts.size.scale3,
+          fontWeight: theme.fonts.weight.bold,
+          lineHeight: theme.fonts.lineHeight.normal,
+        }}>
+          hello, I'm <span css={{ color: theme.colors.orange }}>kevin</span>, a software
+          engineer based in metro detroit. I specialize in all sorts of flavors of javascript,
+          but namely reactjs, vuejs, typescript, nodejs, and graphql. more words will go in this
           paragraph once I figure out what I want to write.
         </p>
       </section>
-      <section className="jobs">
-        <h2 className="current">current</h2>
+      <section>
+        <h3 className="current">current</h3>
         {currentJobs.map((job, index) => <JobListing key={index} {...job} />)}
-        <h2 className="previous">previous</h2>
+        <h3 className="previous">previous</h3>
         {previousJobs.map((job, index) => <JobListing key={index} {...job} />)}
       </section>
     </Layout>

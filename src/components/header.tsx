@@ -1,39 +1,58 @@
 import React, { FC } from 'react';
-import { Link, useStaticQuery, graphql } from 'gatsby';
-import Image from 'gatsby-image';
+import { Link } from 'gatsby';
+import { jsx, css, useTheme } from '@emotion/react';
+import { nodeModuleNameResolver } from 'typescript';
 
-const Header: FC = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      logo: file(absolutePath: { regex: "/gatsby-icon.png/" }) {
-        childImageSharp {
-          fixed(width: 50, height: 50, quality: 95) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-    }
-  `)
+interface Props {
+  links: {
+    path: string;
+    label: string;
+  }[];
+}
 
-  const logo = data?.logo?.childImageSharp?.fixed;
+const Header: FC<Props> = ({ links }) => {
+  const theme = useTheme();
 
   return (
-    <header style={{
+    <header css={{
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
-      marginBottom: '1.5rem',
+      marginBottom: theme.spacing.lg,
     }}>
-      <Image
-        fixed={logo}
-        alt="logo"
-        className="logo"
-      />
+      <Link
+        to="/"
+        css={{
+          textDecoration: 'none',
+        }}
+      >
+        <span
+          css={{
+            color: theme.colors.orange,
+            fontWeight: theme.fonts.weight.black,
+            fontSize: theme.fonts.size.scale2,
+          }}
+        >
+          kevin kieninger.
+        </span>
+      </Link>
 
       <nav>
-        <Link style={{ marginLeft: '1rem' }} to="/">Home</Link>
-        <Link style={{ marginLeft: '1rem' }} to="/writing">Writing</Link>
-        <Link style={{ marginLeft: '1rem' }} to="/about">About</Link>
+        {links.map((link, index) => (
+          <Link
+            key={index}
+            to={link.path}
+            css={{
+              marginLeft: theme.spacing.nm,
+              textDecoration: 'none',
+              color: theme.colors.darkGray,
+              '&:hover': {
+                textDecoration: 'underline',
+                color: theme.colors.orange,
+              },
+            }}
+          >{link.label}</Link>
+        ))}
       </nav>
     </header>
   );

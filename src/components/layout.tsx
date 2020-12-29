@@ -1,18 +1,32 @@
-import React, { FC, ReactNode } from 'react';
+import React, { FC } from 'react';
+import styled from '@emotion/styled';
 import Header from './header';
 import Footer from './footer';
 
-interface Props {
-  children: ReactNode[];
-}
+import { GlobalStyles } from '../styles/GlobalStyles';
 
-const Layout: FC<Props> = ({ children }) => {
+const Wrapper = styled.div`
+  margin: ${props => props.theme.spacing.lg} auto;
+  width: 100%;
+  max-width: 900px;
+  padding: 0 ${props => props.theme.spacing.nm};
+  text-align: left;
+`;
+
+const Layout: FC = ({ children }) => {
+  const links = [
+    { path: '/', label: 'home' },
+    { path: '/writing', label: 'writing' },
+    { path: '/about', label: 'about' },
+  ];
+
   return (
-    <div className="global-wrapper">
-      <Header />
+    <Wrapper>
+      <GlobalStyles />
+      <Header { ...{ links } } />
       <main>{children}</main>
       <Footer />
-    </div>
+    </Wrapper>
   );
 };
 
