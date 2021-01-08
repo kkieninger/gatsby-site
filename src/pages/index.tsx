@@ -40,10 +40,9 @@ const HomePage: FC<PageProps<DataProps>> = ({ data }) => {
           fontWeight: theme.fonts.weight.bold,
           lineHeight: theme.fonts.lineHeight.normal,
         }}>
-          hello, I'm <span css={{ color: theme.colors.orange }}>kevin</span>, a software
-          engineer based in metro detroit. I specialize in all sorts of flavors of javascript,
-          but namely reactjs, vuejs, typescript, nodejs, and graphql. more words will go in this
-          paragraph once I figure out what I want to write.
+          hello, I'm <span css={{ color: theme.colors.orange }}>kevin</span>, a software engineer based
+          in metro detroit. I love to build performant tools for the modern web, and I specialize in all
+          sorts of flavors of javascript, but namely reactjs, vuejs, typescript, nodejs, and graphql.
         </p>
       </section>
       <section>

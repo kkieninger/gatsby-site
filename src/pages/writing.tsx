@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { Link, graphql, PageProps } from 'gatsby';
 
-import Bio from '../components/bio';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
@@ -38,7 +37,11 @@ const WritingPage: FC<PageProps<DataProps>> = ({ data }) => {
     <Layout>
       <SEO title="All posts" />
       <h1>writing</h1>
-      <ol style={{ listStyle: `none` }}>
+      <ol css={{
+        listStyle: 'none',
+        margin: 0,
+        padding: 0,
+      }}>
         {posts.map((post) => {
           const title = post.frontmatter.title || post.fields.slug;
 
@@ -51,7 +54,7 @@ const WritingPage: FC<PageProps<DataProps>> = ({ data }) => {
               >
                 <header>
                   <h2>
-                    <Link to={post.fields.slug} itemProp="url">
+                    <Link to={post.fields.slug} itemProp="url" css={{ textTransform: 'lowercase' }}>
                       <span itemProp="headline">{title}</span>
                     </Link>
                   </h2>
