@@ -74,7 +74,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Poppins:200,300,400,500,600,700'],
+          families: ['Poppins:200,300,400,500,600,700'], // TODO - slim down / assess what font weights are needed
         }
       }
     },

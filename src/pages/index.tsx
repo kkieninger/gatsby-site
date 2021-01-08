@@ -40,16 +40,19 @@ const HomePage: FC<PageProps<DataProps>> = ({ data }) => {
           fontWeight: theme.fonts.weight.bold,
           lineHeight: theme.fonts.lineHeight.normal,
         }}>
-          hello, I'm <span css={{ color: theme.colors.orange }}>kevin</span>, a software
-          engineer based in metro detroit. I specialize in all sorts of flavors of javascript,
-          but namely reactjs, vuejs, typescript, nodejs, and graphql. more words will go in this
-          paragraph once I figure out what I want to write.
+          hello, I'm <span css={{ color: theme.colors.orange }}>kevin</span>, a software engineer based
+          in metro detroit. I love to build tools for the modern web, and I specialize in lots of
+          flavors of javascript, but namely reactjs, vuejs, typescript, nodejs, and graphql.
         </p>
       </section>
       <section>
-        <h3 className="current">current</h3>
+        <h3 css={{
+          marginBottom: theme.spacing.xs,
+        }}>current</h3>
         {currentJobs.map((job, index) => <JobListing key={index} {...job} />)}
-        <h3 className="previous">previous</h3>
+        <h3 css={{
+          marginBottom: theme.spacing.xs,
+        }}>previous</h3>
         {previousJobs.map((job, index) => <JobListing key={index} {...job} />)}
       </section>
     </Layout>

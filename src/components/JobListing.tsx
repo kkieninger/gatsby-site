@@ -10,7 +10,7 @@ export const JobListing: FC<Job> = ({ company, title, years, description }) => {
       marginBottom: theme.spacing.lg,
     }}>
       <div css={{
-        marginBottom: theme.spacing.sm,
+        marginBottom: theme.spacing.xs,
       }}>
         <p css={{
           marginBottom: 0,

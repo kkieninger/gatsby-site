@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { Link, graphql, PageProps } from 'gatsby';
 
-import Bio from '../components/bio';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
@@ -28,12 +27,8 @@ const WritingPage: FC<PageProps<DataProps>> = ({ data }) => {
     return (
       <Layout>
         <SEO title="All posts" />
-        <Bio />
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
+        <h1>writing</h1>
+        <p>there's either no blog posts available right now, or we had trouble fetching them. please try again later.</p>
       </Layout>
     );
   }
@@ -41,8 +36,12 @@ const WritingPage: FC<PageProps<DataProps>> = ({ data }) => {
   return (
     <Layout>
       <SEO title="All posts" />
-      <Bio />
-      <ol style={{ listStyle: `none` }}>
+      <h1>writing</h1>
+      <ol css={{
+        listStyle: 'none',
+        margin: 0,
+        padding: 0,
+      }}>
         {posts.map((post) => {
           const title = post.frontmatter.title || post.fields.slug;
 
@@ -55,7 +54,7 @@ const WritingPage: FC<PageProps<DataProps>> = ({ data }) => {
               >
                 <header>
                   <h2>
-                    <Link to={post.fields.slug} itemProp="url">
+                    <Link to={post.fields.slug} itemProp="url" css={{ textTransform: 'lowercase' }}>
                       <span itemProp="headline">{title}</span>
                     </Link>
                   </h2>

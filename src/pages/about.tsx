@@ -1,25 +1,87 @@
 import React, { FC } from 'react';
 import { graphql, PageProps } from 'gatsby';
+import Image from 'gatsby-image';
+import { useTheme } from '@emotion/react';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
 interface DataProps {
-  site: {
-    siteMetadata: {
-      title: string;
-    };
-  };
+  photo: {
+    childImageSharp: {
+      fixed: {
+        base64: string;
+        width: number;
+        height: number;
+        src: string;
+        srcSet: string;
+      }
+    }
+  }
 }
 
-const AboutPage: FC<PageProps<DataProps>> = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title;
+const AboutPage: FC<PageProps<DataProps>> = ({ data }) => {
+  const theme = useTheme();
+  const photo = data.photo.childImageSharp.fixed;
 
   return (
     <Layout>
       <SEO title="About" />
-      <h1>{siteTitle}</h1>
-      <p>this will be the about page</p>
+      <main>
+        <h1>about</h1>
+        <h2 css={{ fontSize: theme.fonts.size.scale3 }}>
+          hi, i&#39;m <span css={{ color: theme.colors.orange }}>kevin.</span>
+        </h2>
+        <p>
+          i&#39;m a full-stack software engineer, with a strong focus in front-end development. i&#39;m <strong>passionate</strong> about software craftsmanship, engineering leadership,
+          and solving problems at the intersection between product and technical challenges.
+        </p>
+        <p>
+          <strong>outside of work</strong>, i&#39;m an avid baseball fan, music fanatic, bibliophile, and sci-fi geek. lately you can find me unwinding with a good video game, attempting to golf
+          (and failing miserably at it), and slowly amassing a <a href="https://boardgamegeek.com/collection/user/kkieninger?own=1&subtype=boardgame&ff=1" target="_blank">board game collection</a> to
+          collect dust on my shelves.
+        </p>
+        <p>and as for <strong>vices</strong>? i&#39;m a whiskey aficionado, an amateur mixologist and cocktail enthusiast. &#x1F943;</p>
+        {photo && (
+          <div css={{
+            margin: `${theme.spacing.lg} 0`,
+            textAlign: 'center'
+          }}>
+            <Image
+              fixed={photo}
+              alt="Kevin Profile Picture"
+            />
+          </div>
+        )}
+        <h2 css={{ fontSize: theme.fonts.size.scale3 }}>technology</h2>
+        <p>
+          a few of my favorite tools and technologies:
+        </p>
+        {/* TODO: style this better */}
+        <ul>
+          <li>javascript</li>
+          <li>typescript</li>
+          <li>reactjs</li>
+          <li>nodejs</li>
+          <li>graphql</li>
+          <li>vuejs</li>
+          <li>html</li>
+          <li>(s)css</li>
+        </ul>
+        <p>
+          <strong>this site</strong> was built using gatsby, react, typescript, and emotion. the blogs are written with simple markdown files, and the whole thing
+          is deployed via netlify. you can find the full source code <a href="https://github.com/kkieninger/gatsby-site" target="_blank">here</a>, or you can
+          build your own with this <a href="https://github.com/kkieninger/gatsby-typescript-blog-starter" target="_blank">template</a>, which is an extension of
+          the <a href="https://github.com/gatsbyjs/gatsby-starter-blog" target="_blank">fantastic gatsby starter</a>, with a few of my own preferences baked in.
+          if you have any questions or if you find any problems, please feel free to open up an issue on github.
+        </p>
+        <h2 css={{ fontSize: theme.fonts.size.scale3 }}>contact</h2>
+        <p>
+          i&#39;m not much for social media these days, but i try my best to monitor my handles below. if you have a project you want to work on together, or just want to chat, i&#39;d love to hear from you.</p>
+        <p>
+          email: <a href="mailto:ktkienin@gmail.com">ktkienin@gmail.com</a>
+        </p>
+      </main>
     </Layout>
   );
 };
@@ -28,9 +90,11 @@ export default AboutPage;
 
 export const pageQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
+    photo: file(absolutePath: { regex: "/kev.png/" }) {
+      childImageSharp {
+        fixed {
+          ...GatsbyImageSharpFixed
+        }
       }
     }
   }
