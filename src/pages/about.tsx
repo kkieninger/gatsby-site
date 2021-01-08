@@ -34,7 +34,7 @@ const AboutPage: FC<PageProps<DataProps>> = ({ data }) => {
         </h2>
         <p>
           i&#39;m a full-stack software engineer, with a strong focus in front-end development. i&#39;m <strong>passionate</strong> about software craftsmanship, engineering leadership,
-          and staying curious with our ever-changing industry.
+          and solving problems at the intersection between product and technical challenges.
         </p>
         <p>
           <strong>outside of work</strong>, i&#39;m an avid baseball fan, music fanatic, bibliophile, and sci-fi geek. lately you can find me unwinding with a good video game, attempting to golf
@@ -55,7 +55,7 @@ const AboutPage: FC<PageProps<DataProps>> = ({ data }) => {
         )}
         <h2 css={{ fontSize: theme.fonts.size.scale3 }}>technology</h2>
         <p>
-          i&#39;m predominantly well-versed in the javascript ecosystem. a few of my favorite tools and proficiences:
+          a few of my favorite tools and technologies:
         </p>
         {/* TODO: style this better */}
         <ul>

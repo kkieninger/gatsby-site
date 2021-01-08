@@ -41,8 +41,8 @@ const HomePage: FC<PageProps<DataProps>> = ({ data }) => {
           lineHeight: theme.fonts.lineHeight.normal,
         }}>
           hello, I'm <span css={{ color: theme.colors.orange }}>kevin</span>, a software engineer based
-          in metro detroit. I love to build performant tools for the modern web, and I specialize in all
-          sorts of flavors of javascript, but namely reactjs, vuejs, typescript, nodejs, and graphql.
+          in metro detroit. I love to build tools for the modern web, and I specialize in lots of
+          flavors of javascript, but namely reactjs, vuejs, typescript, nodejs, and graphql.
         </p>
       </section>
       <section>
