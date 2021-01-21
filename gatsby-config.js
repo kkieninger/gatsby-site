@@ -71,10 +71,10 @@ module.exports = {
     },
     'gatsby-plugin-react-helmet',
     {
-      resolve: 'gatsby-plugin-web-font-loader',
+      resolve: 'gatsby-plugin-web-font-loader', // TODO: prefetch
       options: {
         google: {
-          families: ['Poppins:200,300,400,500,600,700'], // TODO - slim down / assess what font weights are needed
+          families: ['Poppins:300,400,500,600&display=swap'],
         }
       }
     },

@@ -32,23 +32,29 @@ const Footer: FC = () => {
         <a
           href="//github.com/kkieninger"
           target="_blank"
+          rel="noopener"
           css={{ margin: `0 ${theme.spacing.sm}` }}
         >
           <GitHubIcon />
+          <span css={{ fontSize: 0 }}>Link to GitHub</span>
         </a>
         <a
           href="//linkedin.com/in/kkieninger"
           target="_blank"
+          rel="noopener"
           css={{ margin: `0 ${theme.spacing.sm}` }}
         >
           <LinkedInIcon />
+          <span css={{ fontSize: 0 }}>Link to LinkedIn</span>
         </a>
         <a
           href="//twitter.com/kevinkieninger"
           target="_blank"
+          rel="noopener"
           css={{ margin: `0 ${theme.spacing.sm}` }}
         >
           <TwitterIcon />
+          <span css={{ fontSize: 0 }}>Link to Twitter</span>
         </a>
       </nav>
     </footer>

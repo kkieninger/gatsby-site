@@ -29,7 +29,7 @@ const Header: FC<Props> = ({ links }) => {
         <span
           css={{
             color: theme.colors.orange,
-            fontWeight: theme.fonts.weight.black,
+            fontWeight: theme.fonts.weight.bold,
             fontSize: theme.fonts.size.scale2,
           }}
         >
