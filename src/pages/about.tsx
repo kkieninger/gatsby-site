@@ -5,6 +5,7 @@ import { useTheme } from '@emotion/react';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+import Technologies from '../components/Technologies';
 
 interface DataProps {
   photo: {
@@ -57,17 +58,7 @@ const AboutPage: FC<PageProps<DataProps>> = ({ data }) => {
         <p>
           a few of my favorite tools and technologies:
         </p>
-        {/* TODO: style this better */}
-        <ul>
-          <li>javascript</li>
-          <li>typescript</li>
-          <li>reactjs</li>
-          <li>nodejs</li>
-          <li>graphql</li>
-          <li>vuejs</li>
-          <li>html</li>
-          <li>(s)css</li>
-        </ul>
+        <Technologies />
         <p>
           <strong>this site</strong> was built using gatsby, react, typescript, and emotion. the blogs are written with simple markdown files, and the whole thing
           is deployed via netlify. you can find the full source code <a href="https://github.com/kkieninger/gatsby-site" target="_blank">here</a>, or you can
