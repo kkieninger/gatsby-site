@@ -16,8 +16,11 @@ const TechIconWrap: FC<PropsWithChildren<Props>> = ({ children, title }) => {
         justifyContent: 'center',
         alignItems: 'center',
         padding: theme.spacing.sm,
-        flex: '0 1 15%',
+        flex: '0 1 33%',
         borderRadius: '3px',
+        '@media(min-width: 500px)': {
+          flex: '0 1 15%',
+        },
       }}
     >
       {children}

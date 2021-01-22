@@ -39,10 +39,10 @@ const AboutPage: FC<PageProps<DataProps>> = ({ data }) => {
         </p>
         <p>
           <strong>outside of work</strong>, i&#39;m an avid baseball fan, music fanatic, bibliophile, and sci-fi geek. lately you can find me unwinding with a good video game, attempting to golf
-          (and failing miserably at it), and slowly amassing a <a href="https://boardgamegeek.com/collection/user/kkieninger?own=1&subtype=boardgame&ff=1" target="_blank">board game collection</a> to
+          (and failing miserably at it), and slowly amassing a <a href="https://boardgamegeek.com/collection/user/kkieninger?own=1&subtype=boardgame&ff=1" target="_blank" rel="noopener">board game collection</a> to
           collect dust on my shelves.
         </p>
-        <p>and as for <strong>vices</strong>? i&#39;m a whiskey aficionado, an amateur mixologist and cocktail enthusiast. &#x1F943;</p>
+        <p>and as for <strong>vices</strong>? i&#39;m a whiskey aficionado, an amateur mixologist and a cocktail enthusiast. &#x1F943;</p>
         {photo && (
           <div css={{
             margin: `${theme.spacing.lg} 0`,
@@ -61,9 +61,9 @@ const AboutPage: FC<PageProps<DataProps>> = ({ data }) => {
         <Technologies />
         <p>
           <strong>this site</strong> was built using gatsby, react, typescript, and emotion. the blogs are written with simple markdown files, and the whole thing
-          is deployed via netlify. you can find the full source code <a href="https://github.com/kkieninger/gatsby-site" target="_blank">here</a>, or you can
-          build your own with this <a href="https://github.com/kkieninger/gatsby-typescript-blog-starter" target="_blank">template</a>, which is an extension of
-          the <a href="https://github.com/gatsbyjs/gatsby-starter-blog" target="_blank">fantastic gatsby starter</a>, with a few of my own preferences baked in.
+          is deployed via netlify. you can find the <a href="https://github.com/kkieninger/gatsby-site" target="_blank" rel="noopener">full source code here</a>, or you can
+          build your own with this <a href="https://github.com/kkieninger/gatsby-typescript-blog-starter" target="_blank" rel="noopener">template</a>, which is an extension of
+          the <a href="https://github.com/gatsbyjs/gatsby-starter-blog" target="_blank" rel="noopener">fantastic gatsby starter</a>, with a few of my own preferences baked in.
           if you have any questions or if you find any problems, please feel free to open up an issue on github.
         </p>
         <h2 css={{ fontSize: theme.fonts.size.scale3 }}>contact</h2>

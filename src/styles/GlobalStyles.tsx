@@ -105,6 +105,33 @@ export const GlobalStyles: FC = () => {
         padding: 0;
       }
 
+      code {
+        text-transform: none;
+      }
+
+      blockquote {
+        position: relative;
+        margin-left: 0;
+        padding-left: 40px;
+        font-size: 1.1rem;
+        font-weight: ${theme.fonts.weight.bold};
+      }
+
+      blockquote:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 5px;
+        background-color: ${theme.colors.orange};
+        opacity: 0.5;
+      }
+
+      li::marker {
+        color: ${theme.colors.orange};
+      }
+
       main a {
         color: var(--color-orange);
         text-decoration: none;

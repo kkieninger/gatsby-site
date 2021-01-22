@@ -30,12 +30,10 @@ export const theme: Theme = {
       scale7: '2.986rem',
     },
     weight: {
-      extraLight: 200,
       light: 300,
       normal: 400,
       medium: 500,
       bold: 600,
-      black: 700,
     },
   },
   colors: {

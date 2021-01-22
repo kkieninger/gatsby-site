@@ -47,12 +47,10 @@ interface ThemeFontSize {
 }
 
 interface ThemeFontWeight {
-  extraLight: number;
   light: number;
   normal: number;
   medium: number;
   bold: number;
-  black: number;
 }
 
 interface ThemeColors {
