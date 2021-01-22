@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Job } from '../types/jobs';
+import { Job } from '../types';
 import { useTheme } from '@emotion/react';
 
 export const JobListing: FC<Job> = ({ company, title, years, description }) => {

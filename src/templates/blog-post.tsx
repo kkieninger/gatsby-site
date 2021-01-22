@@ -1,18 +1,23 @@
 import React, { FC } from 'react';
-import { Link, graphql } from 'gatsby';
+import { Link, graphql, PageProps } from 'gatsby';
+import { useTheme } from '@emotion/react';
 
-import Bio from '../components/bio';
+import { PostData } from '../types';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
 interface Props {
-  data: any;
-  location: string;
+  site: {
+    siteMetadata: {
+      title: string;
+    }
+  }
+  markdownRemark: PostData;
 }
 
-const BlogPostTemplate: FC<Props> = ({ data }) => {
+const BlogPostTemplate: FC<PageProps<Props>> = ({ data }) => {
+  const theme = useTheme();
   const post = data.markdownRemark;
-  const { previous, next } = data;
 
   return (
     <Layout>
@@ -24,45 +29,38 @@ const BlogPostTemplate: FC<Props> = ({ data }) => {
         className="blog-post"
         itemScope
         itemType="http://schema.org/Article"
+        css={{ textTransform: 'lowercase' }}
       >
-        <header>
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
+        <header css={{
+          marginBottom: theme.spacing.xl,
+        }}>
+          <h1
+            itemProp="headline"
+            css={{
+              marginBottom: theme.spacing.xxs,
+            }}
+          >{post.frontmatter.title}</h1>
+          <p
+            css={{
+              fontWeight: theme.fonts.weight.bold,
+              color: theme.colors.orange,
+              fontSize: theme.fonts.size.scale2,
+            }}
+          >{post.frontmatter.date}</p>
         </header>
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
-        <hr />
-        <footer>
-          <Bio />
-        </footer>
       </article>
-      <nav className="blog-post-nav">
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
+      <nav css={{
+        display: 'flex',
+        justifyContent: 'flex-end',
+        borderTop: `2px solid ${theme.colors.orange}`,
+        padding: `${theme.spacing.sm} 0`,
+        marginTop: theme.spacing.lg,
+      }}>
+        <Link to="/writing">back to writing</Link>
       </nav>
     </Layout>
   );
@@ -71,11 +69,7 @@ const BlogPostTemplate: FC<Props> = ({ data }) => {
 export default BlogPostTemplate;
 
 export const pageQuery = graphql`
-  query BlogPostBySlug(
-    $id: String!
-    $previousPostId: String
-    $nextPostId: String
-  ) {
+  query BlogPostBySlug($id: String!) {
     site {
       siteMetadata {
         title
@@ -89,22 +83,6 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
-      }
-    }
-    previous: markdownRemark(id: { eq: $previousPostId }) {
-      fields {
-        slug
-      }
-      frontmatter {
-        title
-      }
-    }
-    next: markdownRemark(id: { eq: $nextPostId }) {
-      fields {
-        slug
-      }
-      frontmatter {
-        title
       }
     }
   }

@@ -3,7 +3,7 @@ import { graphql, PageProps } from 'gatsby';
 import { useTheme } from '@emotion/react';
 
 // Types
-import { Job } from '../types/jobs';
+import { Job } from '../types';
 // Components
 import Layout from '../components/layout';
 import SEO from '../components/seo';
